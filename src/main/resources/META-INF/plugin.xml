@@ -1,4 +1,4 @@
-<idea-plugin version="2">
+<idea-plugin version="2" url="https://plugins.jetbrains.com/plugin/9174">
     <id>com.github.shiraji.emoji</id>
     <name>Emoji Support Plugin</name>
     <version>1.0.0</version>
