@@ -36,7 +36,7 @@ trollface
 Copyright (c) 2012 whynne@deviantart. All rights reserved.
 ```
 
-If this plugin violate this term, I will remove all icons from their repository.
+If this plugin violate this term, I will remove all their icons.
 
 ## Emoji Support Plugin's License
 
