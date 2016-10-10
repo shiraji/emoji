@@ -1,0 +1,41 @@
+<idea-plugin version="2">
+    <id>com.github.shiraji.emoji</id>
+    <name>Emoji Support Plugin</name>
+    <version>1.0.0</version>
+    <vendor email="isogai.shiraji@gmail.com" url="http://github.com/shiraji">Shiraji</vendor>
+
+    <description><![CDATA[
+    Intellij plugin for supporting auto-complete for Emoji. This plugin heavily rely on <a href="https://github.com/WebpageFX/emoji-cheat-sheet.com">emoji-cheat-sheet.com</a>
+    ]]></description>
+
+    <change-notes><![CDATA[
+        <p>1.0.0</p>
+        <ul>
+            <li>Initial release</li>
+        </ul>
+    ]]>
+    </change-notes>
+
+    <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->
+    <idea-version since-build="143"/>
+
+    <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
+         on how to target different products -->
+    <depends>com.intellij.modules.lang</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <completion.contributor language="TEXT"
+                                order="first, before commitCompletion"
+                                implementationClass="com.github.shiraji.emoji.contributor.EmojiCompletionContributor"/>
+    </extensions>
+
+    <application-components>
+    </application-components>
+
+    <project-components>
+    </project-components>
+
+    <actions>
+    </actions>
+
+</idea-plugin>

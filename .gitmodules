@@ -1,0 +1,3 @@
+[submodule "src/main/resources/emoji"]
+	path = src/main/resources/emoji
+	url = https://github.com/WebpageFX/emoji-cheat-sheet.com.git
