@@ -26,6 +26,8 @@ class EmojiCompletionContributor : CompletionContributor() {
 
         extend(CompletionType.BASIC, PlatformPatterns.psiElement(PsiPlainText::class.java), object : CompletionProvider<CompletionParameters>() {
             override fun addCompletions(parameters: CompletionParameters, context: ProcessingContext?, result: CompletionResultSet) {
+                if (parameters.editor.isOneLineMode) return
+
                 emojiList.forEach {
                     result.addElement(LookupElementBuilder.create(it.emojiText).withIcon(it.icon)
                             // cannot handle the case :100:<caret> generating :100:+1: (should be :100::+1:)
