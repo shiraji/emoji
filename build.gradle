@@ -31,6 +31,7 @@ intellij {
         username 'shiraji'
         password System.getenv('PASSWORD')
         pluginId '9174'
+        channel 'canary'
     }
 }
 
