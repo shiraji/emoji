@@ -6,6 +6,7 @@ import com.intellij.codeInsight.lookup.LookupElementBuilder
 import com.intellij.patterns.PlatformPatterns
 import com.intellij.psi.PsiPlainText
 import com.intellij.util.ProcessingContext
+import com.intellij.util.ui.UIUtil
 import java.awt.Image
 import java.io.File
 import javax.imageio.ImageIO
@@ -20,8 +21,9 @@ class EmojiCompletionContributor : CompletionContributor() {
         val emojiDir = File(url.toURI())
         emojiDir.list().forEach {
             val image = ImageIO.read(File(emojiDir.absolutePath + "/" + it))
-            val scaledImage = image.getScaledInstance(16, 16, Image.SCALE_SMOOTH)
-            emojiList.add(EmojiData(it.replaceAfter(".", "").replace(".", ""), ImageIcon(scaledImage)))
+            val size = if (UIUtil.isRetina()) 32 else 16
+            val scaledImage = image.getScaledInstance(size, size, Image.SCALE_SMOOTH)
+            emojiList.add(EmojiData(":${it.replaceAfter(".", "").replace(".", "")}:", ImageIcon(scaledImage)))
         }
 
         extend(CompletionType.BASIC, PlatformPatterns.psiElement(PsiPlainText::class.java), object : CompletionProvider<CompletionParameters>() {
