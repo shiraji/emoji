@@ -27,7 +27,11 @@ class EmojiCompletionContributor : CompletionContributor() {
         extend(CompletionType.BASIC, PlatformPatterns.psiElement(PsiPlainText::class.java), object : CompletionProvider<CompletionParameters>() {
             override fun addCompletions(parameters: CompletionParameters, context: ProcessingContext?, result: CompletionResultSet) {
                 if (parameters.editor.isOneLineMode) return
-                if (parameters.offset > 0 && parameters.editor.document.charsSequence[parameters.offset - 1] != ':') return
+                val message = parameters.editor.document.charsSequence.toString()
+                val colonPosition = message.lastIndexOf(":", parameters.offset)
+                if (colonPosition < 0) return
+                val spacePosition = message.lastIndexOf(" ", parameters.offset)
+                if (spacePosition > colonPosition) return
                 emojiList.forEach {
                     result.addElement(LookupElementBuilder.create(it.emojiText, ":${it.emojiText}: ")
                             .withIcon(it.icon)
