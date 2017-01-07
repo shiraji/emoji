@@ -21,23 +21,23 @@ class EmojiCompletionContributor : CompletionContributor() {
         emojiDir.list().forEach {
             val image = ImageIO.read(File(emojiDir.absolutePath + "/" + it))
             val scaledImage = image.getScaledInstance(16, 16, Image.SCALE_SMOOTH)
-            emojiList.add(EmojiData(":${it.replaceAfter(".", "").replace(".", "")}:", ImageIcon(scaledImage)))
+            emojiList.add(EmojiData(it.replaceAfter(".", "").replace(".", ""), ImageIcon(scaledImage)))
         }
 
         extend(CompletionType.BASIC, PlatformPatterns.psiElement(PsiPlainText::class.java), object : CompletionProvider<CompletionParameters>() {
             override fun addCompletions(parameters: CompletionParameters, context: ProcessingContext?, result: CompletionResultSet) {
                 if (parameters.editor.isOneLineMode) return
-
+                if (parameters.offset > 0 && parameters.editor.document.charsSequence[parameters.offset - 1] != ':') return
                 emojiList.forEach {
-                    result.addElement(LookupElementBuilder.create(it.emojiText).withIcon(it.icon)
-                            // cannot handle the case :100:<caret> generating :100:+1: (should be :100::+1:)
-//                            .withInsertHandler { insertionContext, lookupElement ->
-//                                val startOffset = insertionContext.startOffset
-//                                val document = insertionContext.document
-//                                if (document.charsSequence[startOffset - 1] == ':') {
-//                                    document.deleteString(startOffset - 1, startOffset)
-//                                }
-//                            }
+                    result.addElement(LookupElementBuilder.create(it.emojiText, ":${it.emojiText}: ")
+                            .withIcon(it.icon)
+                            .withInsertHandler { insertionContext, lookupElement ->
+                                val startOffset = insertionContext.startOffset
+                                val document = insertionContext.document
+                                if (startOffset > 0 && document.charsSequence[startOffset - 1] == ':') {
+                                    document.deleteString(startOffset - 1, startOffset)
+                                }
+                            }
                     )
                 }
             }
