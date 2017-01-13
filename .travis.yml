@@ -17,8 +17,4 @@ cache:
 after_success:
 - .travis/after_success.sh
 before_install:
-- openssl aes-256-cbc -K $encrypted_9f6ec11ac5b3_key -iv $encrypted_9f6ec11ac5b3_iv
-  -in travis.enc -out .travis.ssh -d
-- chmod 600 .travis.ssh
-- echo -e "Host github.com\n\tStrictHostKeyChecking no\nIdentityFile .travis.ssh\n"
-  >> ~/.ssh/config
+- .travis/before_install.sh
