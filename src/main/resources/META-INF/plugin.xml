@@ -1,33 +1,37 @@
 <idea-plugin version="2" url="https://plugins.jetbrains.com/plugin/9174">
     <id>com.github.shiraji.emoji</id>
     <name>Emoji Support Plugin</name>
-    <version>1.0.0</version>
     <vendor email="isogai.shiraji@gmail.com" url="http://github.com/shiraji">Shiraji</vendor>
 
     <description><![CDATA[
-    Intellij plugin for supporting auto-complete for Emoji. This plugin heavily rely on <a href="https://github.com/WebpageFX/emoji-cheat-sheet.com">emoji-cheat-sheet.com</a>
+    Intellij plugin for supporting auto-complete for Emoji.
     ]]></description>
 
-    <change-notes><![CDATA[
-        <p>2.0.1</p>
-        <ul>
-            <li>Retina support #7</li>
-        </ul>
-        <p>Older version changes are listed on <a href="https://github.com/shiraji/emoji/blob/master/CHANGELOG.md">CHANGELOG.md</a></p>
-    ]]>
-    </change-notes>
-
-    <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->
     <idea-version since-build="143"/>
 
-    <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
-         on how to target different products -->
     <depends>com.intellij.modules.lang</depends>
+    <!-- https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html -->
+<!--    <depends optional="true" config-file="java.xml">com.intellij.modules.java</depends>-->
+<!--    <depends optional="true" config-file="kotlin.xml">org.jetbrains.kotlin</depends>-->
+<!--    <depends optional="true" config-file="python.xml">com.intellij.modules.python</depends>-->
+<!--    <depends optional="true" config-file="ruby.xml">com.intellij.modules.ruby</depends>-->
+<!--    <depends optional="true" config-file="yaml.xml">org.jetbrains.plugins.yaml</depends>-->
+<!--    <depends optional="true" config-file="go.xml">org.jetbrains.plugins.go</depends>-->
+<!--    <depends optional="true" config-file="php.xml">com.jetbrains.php</depends>-->
+<!--    <depends optional="true" config-file="js.xml">JavaScript</depends>-->
+<!--    <depends optional="true" config-file="xml.xml">com.intellij.modules.xml</depends>-->
+<!--    <depends optional="true" config-file="markdown.xml">org.intellij.plugins.markdown</depends>-->
+<!--    <depends optional="true" config-file="groovy.xml">org.intellij.groovy</depends>-->
+<!--    <depends optional="true" config-file="scala.xml">org.intellij.scala</depends>-->
+<!--    <depends optional="true" config-file="rust.xml">org.rust.lang</depends>-->
+<!--    <depends optional="true" config-file="properties.xml">com.intellij.properties</depends>-->
 
     <extensions defaultExtensionNs="com.intellij">
+        <preloadingActivity implementation="com.github.shiraji.emoji.action.EmojiPreloadingActivity"/>
+
         <completion.contributor language="TEXT"
                                 order="first, before commitCompletion"
-                                implementationClass="com.github.shiraji.emoji.contributor.EmojiCompletionContributor"/>
+                                implementationClass="com.github.shiraji.emoji.contributor.PsiPlainTextCompletionContributor"/>
     </extensions>
 
     <application-components>

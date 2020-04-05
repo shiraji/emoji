@@ -1,47 +1,33 @@
 package com.github.shiraji.emoji.contributor
 
-import com.github.shiraji.emoji.data.EmojiData
-import com.intellij.codeInsight.completion.*
-import com.intellij.codeInsight.lookup.LookupElementBuilder
-import com.intellij.openapi.util.IconLoader
-import com.intellij.patterns.PlatformPatterns
-import com.intellij.psi.PsiPlainText
+import com.github.shiraji.emoji.data.EmojiCompletionProvider
+import com.github.shiraji.emoji.ext.findColonPosition
+import com.intellij.codeInsight.completion.CompletionContributor
+import com.intellij.codeInsight.completion.CompletionParameters
+import com.intellij.codeInsight.completion.CompletionProvider
+import com.intellij.codeInsight.completion.CompletionResultSet
+import com.intellij.codeInsight.completion.CompletionType
+import com.intellij.openapi.util.TextRange
+import com.intellij.patterns.ElementPattern
+import com.intellij.psi.PsiElement
 import com.intellij.util.ProcessingContext
-import java.io.File
 
-class EmojiCompletionContributor : CompletionContributor() {
+abstract class EmojiCompletionContributor(
+    private val provider: CompletionProvider<CompletionParameters> = EmojiCompletionProvider()
+) : CompletionContributor() {
+    abstract val place: ElementPattern<out PsiElement>
 
-    val emojiList = mutableListOf<EmojiData>()
-
-    init {
-        File(javaClass.getResource("/icons").toURI()).list()
-                .filterNot { it.contains("@2") }
-                .forEach {
-                    val icon = IconLoader.getIcon("/icons/$it")
-                    emojiList.add(EmojiData(it.replaceAfter(".", "").replace(".", ""), icon))
-                }
-
-        extend(CompletionType.BASIC, PlatformPatterns.psiElement(PsiPlainText::class.java), object : CompletionProvider<CompletionParameters>() {
-            override fun addCompletions(parameters: CompletionParameters, context: ProcessingContext?, result: CompletionResultSet) {
-                if (parameters.editor.isOneLineMode) return
-                val message = parameters.editor.document.charsSequence.toString()
-                val colonPosition = message.lastIndexOf(":", parameters.offset)
-                if (colonPosition < 0) return
-                val spacePosition = message.lastIndexOf(" ", parameters.offset)
-                if (spacePosition > colonPosition) return
-                emojiList.forEach {
-                    result.addElement(LookupElementBuilder.create(it.emojiText, ":${it.emojiText}: ")
-                            .withIcon(it.icon)
-                            .withInsertHandler { insertionContext, lookupElement ->
-                                val startOffset = insertionContext.startOffset
-                                val document = insertionContext.document
-                                if (startOffset > 0 && document.charsSequence[startOffset - 1] == ':') {
-                                    document.deleteString(startOffset - 1, startOffset)
-                                }
-                            }
-                    )
-                }
+    override fun fillCompletionVariants(parameters: CompletionParameters, result: CompletionResultSet) {
+        super.fillCompletionVariants(parameters, result)
+        if (parameters.completionType == CompletionType.BASIC && place.accepts(parameters.position)) {
+            val colonPosition = parameters.findColonPosition()
+            val newResult = if (colonPosition >= 0) {
+                val prefix = parameters.editor.document.getText(TextRange(colonPosition, parameters.editor.caretModel.currentCaret.offset))
+                result.withPrefixMatcher(prefix)
+            } else {
+                result
             }
-        })
+            provider.addCompletionVariants(parameters, ProcessingContext(), newResult)
+        }
     }
 }

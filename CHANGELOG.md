@@ -1,3 +1,7 @@
+### [release-3.0.0](https://github.com/shiraji/emoji/releases/tag/release-3.0.0)
+
+* Reimplement this plugin. Now this plugin uses GitHub Emoji API
+
 ### [ver 2.0.1](https://github.com/shiraji/emoji/releases/tag/v2.0.1)
 
 * Retina support #7

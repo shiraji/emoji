@@ -1,8 +1,6 @@
 # Emoji Support Plugin
 
-Intellij plugin for supporting auto-complete for Emoji. This plugin heavily rely on <a href="https://github.com/WebpageFX/emoji-cheat-sheet.com">emoji-cheat-sheet.com</a>
-
-This plugin is useful for filling in Emoji for commit messages and markdown.
+Intellij plugin for supporting auto-complete for Emoji. This plugin is useful for filling in Emoji for commit messages.
 
 ## How to use it?
 
@@ -11,39 +9,14 @@ This plugin is useful for filling in Emoji for commit messages and markdown.
 
 ![commit](website/images/commit.gif)
 
-## emoji-cheat-sheet.com
+## How to install
 
-First of all, I would like to say thanks for all works on [emoji-cheat-sheet.com](https://github.com/WebpageFX/emoji-cheat-sheet.com)
+Use the IDE's plugin manager to install the latest version of the plugin.
 
-Their license of Emoji icons is under following term.
-
-```
-All emoji images (unless listed below) are Copyright (c) 2012 Apple Inc. All rights reserved.
-
-octocat, squirrel, shipit
-Copyright (c) 2012 GitHub Inc. All rights reserved.
-
-bowtie
-Copyright (c) 2012 37signals, LLC. All rights reserved.
-
-neckbeard
-Copyright (c) 2012 Jamie Dihiansan. Creative Commons Attribution 3.0 Unported
-
-feelsgood, finnadie, goberserk, godmode, hurtrealbad, rage 1, rage 2, rage 3, rage 4, suspect
-Copyright (c) 2012 id Software. All rights reserved.
-
-trollface
-Copyright (c) 2012 whynne@deviantart. All rights reserved.
-```
-
-If this plugin violate this term, I will remove all their icons.
-
-## Emoji Support Plugin's License
-
-Except those icons from [emoji-cheat-sheet.com](https://github.com/WebpageFX/emoji-cheat-sheet.com), this plugin is under following term.
+## LICENSE
 
 ```
-Copyright 2017 Yoshinori Isogai
+Copyright 2020 Yoshinori Isogai
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
