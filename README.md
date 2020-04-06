@@ -4,10 +4,20 @@ Intellij plugin for supporting auto-complete for Emoji. This plugin is useful fo
 
 ## How to use it?
 
-* Open Commit Changes dialog
-* Open code completion
+1. Type ":" and emoji name
+1. Open code completion
 
 ![commit](website/images/commit.gif)
+
+## Supported inserting location
+
+* IntelliJ Commit Message
+
+The list of supported languages are:
+
+* Markdown
+
+See #20 for other languages
 
 ## How to install
 
