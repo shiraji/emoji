@@ -22,7 +22,7 @@ class EmojiCompletionProvider : CompletionProvider<CompletionParameters>() {
                     .withIcon(it.icon)
                     .withInsertHandler { insertionContext, _ ->
                         val document = insertionContext.document
-                        document.replaceString(colonPosition, insertionContext.tailOffset, ":${it.label}:")
+                        document.replaceString(colonPosition, insertionContext.tailOffset, ":${it.label}: ")
                     }
             )
         }
