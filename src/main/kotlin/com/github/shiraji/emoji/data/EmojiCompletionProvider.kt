@@ -18,7 +18,7 @@ class EmojiCompletionProvider : CompletionProvider<CompletionParameters>() {
         if (colonPosition < 0) return
 
         EmojiDataManager.emojiList.forEach {
-            result.addElement(LookupElementBuilder.create(":${it.label}: ${it.unicode}")
+            result.addElement(LookupElementBuilder.create(":${it.label}: ${it.unicode ?: ""}")
                     .withIcon(it.icon)
                     .withInsertHandler { insertionContext, _ ->
                         val document = insertionContext.document

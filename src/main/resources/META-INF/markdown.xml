@@ -1,0 +1,7 @@
+<idea-plugin>
+    <extensions defaultExtensionNs="com.intellij">
+        <completion.contributor language="Markdown"
+                                implementationClass="com.github.shiraji.emoji.contributor.MarkdownEmojiCompletionContributor"/>
+
+    </extensions>
+</idea-plugin>
