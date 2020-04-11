@@ -1,0 +1,16 @@
+<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+ <g>
+  <title>background</title>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <text stroke="#000" transform="matrix(0.9713096448323171,0,0,1.0279189759945309,-0.7063917738450376,-7.558365036939623) " xml:space="preserve" text-anchor="start" font-family="Georgia, Times, 'Times New Roman', serif" font-size="24" id="svg_1" y="32.319734" x="1.980817" stroke-width="0" fill="#9ACEE6">:</text>
+  <text style="cursor: move;" stroke="#000" transform="matrix(0.8458904027938843,0,0,0.7579275369644165,0.9993044193834066,1.0250255856662989) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_2" y="31.357542" x="9.670736" stroke-width="0" fill="#9ACEE6">+</text>
+  <text stroke="#000" transform="matrix(0.9713096448323171,0,0,1.0279189759945304,-0.6282667738450376,-7.558365036939623) " xml:space="preserve" text-anchor="start" font-family="Georgia, Times, 'Times New Roman', serif" font-size="24" id="svg_4" y="32.319734" x="33.269115" stroke-width="0" fill="#000000">:</text>
+  <text stroke="#000" transform="matrix(0.8458904027938843,0,0,0.7579275369644165,0.9993044193834066,1.0250255856662989) " xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_5" y="32.130621" x="23.385944" stroke-width="0" fill="#000000">1</text>
+ </g>
+</svg>
