@@ -4,7 +4,10 @@
     <vendor email="isogai.shiraji@gmail.com" url="http://github.com/shiraji">Shiraji</vendor>
 
     <description><![CDATA[
-    Intellij plugin for supporting auto-complete for Emoji.
+    Intellij plugin for supporting auto-complete for Emoji.<br/>
+    <img src="https://github.com/shiraji/emoji/raw/master/website/images/commit.gif" /><br/>
+    This plugin also supports code folding<br/>
+    <img src="https://github.com/shiraji/emoji/raw/master/website/images/code_folding.gif" />
     ]]></description>
 
     <idea-version since-build="143"/>
