@@ -1,6 +1,6 @@
 package com.github.shiraji.emoji.contributor
 
-import com.github.shiraji.emoji.data.EmojiCompletionProvider
+import com.github.shiraji.emoji.completion.EmojiCompletionProvider
 import com.github.shiraji.emoji.ext.findColonPosition
 import com.intellij.codeInsight.completion.CompletionContributor
 import com.intellij.codeInsight.completion.CompletionParameters

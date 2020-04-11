@@ -32,6 +32,8 @@
         <completion.contributor language="TEXT"
                                 order="first, before commitCompletion"
                                 implementationClass="com.github.shiraji.emoji.contributor.PsiPlainTextCompletionContributor"/>
+
+        <lang.foldingBuilder language="TEXT" implementationClass="com.github.shiraji.emoji.folding.PsiPlainTextFoldingBuilder" />
     </extensions>
 
     <application-components>
