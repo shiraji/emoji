@@ -1,9 +1,9 @@
-package com.github.shiraji.emoji.contributor
+package com.github.shiraji.emoji.folding
 
 import com.github.shiraji.emoji.data.pattern.psiPlainTextPattern
 import com.intellij.patterns.ElementPattern
 import com.intellij.psi.PsiElement
 
-class PsiPlainTextCompletionContributor : EmojiCompletionContributor() {
+class PsiPlainTextFoldingBuilder : EmojiFoldingBuilder() {
     override val place: ElementPattern<out PsiElement> = psiPlainTextPattern
 }

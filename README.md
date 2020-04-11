@@ -1,3 +1,9 @@
+[![Software License](https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg)](https://github.com/shiraji/find-pull-request/blob/master/LICENSE)
+[![Version](https://img.shields.io/jetbrains/plugin/v/12512-yet-another-emoji-support.svg)](https://plugins.jetbrains.com/plugin/9174-emoji-support-plugin)
+[![Download](https://img.shields.io/jetbrains/plugin/d/12512-yet-another-emoji-support.svg)](https://plugins.jetbrains.com/plugin/9174-emoji-support-plugin)
+
+![icon](.idea/icon.png)
+
 # Emoji Support Plugin
 
 Intellij plugin for supporting auto-complete for Emoji. This plugin is useful for filling in Emoji for commit messages.
@@ -9,6 +15,12 @@ Intellij plugin for supporting auto-complete for Emoji. This plugin is useful fo
 
 ![commit](website/images/commit.gif)
 
+## Code Folding
+
+This plugin provides code folding for emoji.
+
+![code_folding](website/images/code_folding.gif)
+
 ## Supported inserting location
 
 * IntelliJ Commit Message
@@ -17,7 +29,7 @@ The list of supported languages are:
 
 * Markdown
 
-See #20 for other languages
+See [#20](https://github.com/shiraji/emoji/issues/20) for other languages
 
 ## How to install
 

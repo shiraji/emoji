@@ -3,5 +3,6 @@
         <completion.contributor language="Markdown"
                                 implementationClass="com.github.shiraji.emoji.contributor.MarkdownEmojiCompletionContributor"/>
 
+        <lang.foldingBuilder language="Markdown" implementationClass="com.github.shiraji.emoji.folding.MarkdownTextFoldingBuilder" />
     </extensions>
 </idea-plugin>

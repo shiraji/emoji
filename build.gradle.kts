@@ -85,7 +85,7 @@ publishPlugin {
 
 dependencies {
     val kotlinVersion: String by project
-    compile("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
 
     testImplementation("io.mockk:mockk:1.8.6")
     testImplementation("org.junit.jupiter:junit-jupiter:5.4.2")
@@ -162,6 +162,30 @@ tasks.register("deleteResourceJson") {
 
 val clean by tasks.existing {
     dependsOn("deleteResourceJson")
+}
+
+tasks.register("verifyEmojiFile") {
+    doFirst {
+        val file = File("${project.rootDir.absolutePath}/src/main/resources/emoji.json")
+        check(file.exists())
+
+        // This must matches with code inside project.
+        // TODO: make it common variables
+        val emojiKeyRegex = "^[a-z0-9_+\\\\-]+\$"
+        val map = groovy.json.JsonSlurper().parse(file) as Map<*, *>
+
+        val result = map.filterKeys { item ->
+            !item.toString().matches(Regex(emojiKeyRegex))
+        }
+        check(result.isEmpty()) {
+            println("Invalid key found. '${result.keys.joinToString()}'")
+            println("Make sure all emoji keys match '$emojiKeyRegex'")
+        }
+    }
+}
+
+val verifyPlugin by tasks.existing {
+    dependsOn("verifyEmojiFile")
 }
 
 inline operator fun <T : Task> T.invoke(a: T.() -> Unit): T = apply(a)

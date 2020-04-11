@@ -1,5 +1,6 @@
-package com.github.shiraji.emoji.data
+package com.github.shiraji.emoji.completion
 
+import com.github.shiraji.emoji.data.EmojiDataManager
 import com.github.shiraji.emoji.ext.findColonPosition
 import com.intellij.codeInsight.completion.CompletionParameters
 import com.intellij.codeInsight.completion.CompletionProvider
@@ -21,8 +22,7 @@ class EmojiCompletionProvider : CompletionProvider<CompletionParameters>() {
             result.addElement(LookupElementBuilder.create(":${it.label}: ${it.unicode ?: ""}")
                     .withIcon(it.icon)
                     .withInsertHandler { insertionContext, _ ->
-                        val document = insertionContext.document
-                        document.replaceString(colonPosition, insertionContext.tailOffset, ":${it.label}: ")
+                        insertionContext.document.replaceString(colonPosition, insertionContext.tailOffset, ":${it.label}: ")
                     }
             )
         }
