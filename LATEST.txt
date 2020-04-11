@@ -1,5 +1,6 @@
-<p>3.0.0</p>
+<p>3.1.0</p>
 <ul>
-    <li>Reimplement this plugin. Now this plugin uses GitHub Emoji API</li>
+    <li>Support code folding #1</li>
+    <li>Add plugin icon #27</li>
 </ul>
 <p>Older version changes are listed on <a href="https://github.com/shiraji/emoji/blob/master/CHANGELOG.md">CHANGELOG.md</a></p>

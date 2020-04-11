@@ -1,3 +1,8 @@
+### [release-3.1.0](https://github.com/shiraji/emoji/releases/tag/release-3.1.0)
+
+* Support code folding #1
+* Add plugin icon #27
+
 ### [release-3.0.0](https://github.com/shiraji/emoji/releases/tag/release-3.0.0)
 
 * Reimplement this plugin. Now this plugin uses GitHub Emoji API
