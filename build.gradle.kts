@@ -85,7 +85,7 @@ publishPlugin {
 
 dependencies {
     val kotlinVersion: String by project
-    compile("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion")
 
     testImplementation("io.mockk:mockk:1.8.6")
     testImplementation("org.junit.jupiter:junit-jupiter:5.4.2")
