@@ -10,7 +10,7 @@
     <img src="https://github.com/shiraji/emoji/raw/master/website/images/code_folding.gif" />
     ]]></description>
 
-    <idea-version since-build="143"/>
+    <idea-version since-build="201"/>
 
     <depends>com.intellij.modules.lang</depends>
     <!-- https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html -->
@@ -47,5 +47,9 @@
 
     <actions>
     </actions>
+
+    <applicationListeners>
+        <listener class="com.github.shiraji.emoji.listener.EmojiDynamicPluginListener" topic="com.intellij.ide.plugins.DynamicPluginListener" />
+    </applicationListeners>
 
 </idea-plugin>

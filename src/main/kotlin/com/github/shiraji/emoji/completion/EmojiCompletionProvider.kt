@@ -2,6 +2,7 @@ package com.github.shiraji.emoji.completion
 
 import com.github.shiraji.emoji.data.EmojiDataManager
 import com.github.shiraji.emoji.ext.findColonPosition
+import com.github.shiraji.emoji.service.EmojiReader
 import com.intellij.codeInsight.completion.CompletionParameters
 import com.intellij.codeInsight.completion.CompletionProvider
 import com.intellij.codeInsight.completion.CompletionResultSet
@@ -17,6 +18,10 @@ class EmojiCompletionProvider : CompletionProvider<CompletionParameters>() {
         if (parameters.editor.isOneLineMode) return
         val colonPosition = parameters.findColonPosition()
         if (colonPosition < 0) return
+
+        if (EmojiDataManager.emojiList.isEmpty()) {
+            EmojiDataManager.emojiList.addAll(EmojiReader.loadEmoji())
+        }
 
         EmojiDataManager.emojiList.forEach {
             result.addElement(LookupElementBuilder.create(":${it.label}: ${it.unicode ?: ""}")
