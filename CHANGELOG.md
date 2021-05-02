@@ -1,3 +1,8 @@
+### [release-3.1.1](https://github.com/shiraji/emoji/releases/tag/release-3.1.1)
+
+* Support Dynamic Load
+* Fix UninitializedPropertyAccessException #32 and #34
+
 ### [release-3.1.0](https://github.com/shiraji/emoji/releases/tag/release-3.1.0)
 
 * Support code folding #1
