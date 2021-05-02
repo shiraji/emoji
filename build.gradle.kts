@@ -13,7 +13,7 @@ buildscript {
 plugins {
     id("org.jetbrains.kotlin.jvm")
     id("jacoco")
-    id("org.jetbrains.intellij") version "0.4.8"
+    id("org.jetbrains.intellij") version "0.7.3"
 }
 
 group = "com.github.shiraji"
@@ -27,7 +27,7 @@ val test by tasks.getting(Test::class) {
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         jvmTarget = "1.8"
-        freeCompilerArgs = listOf("-Xjsr305=strict")
+        freeCompilerArgs = listOf("-Xjsr305=strict", "-Xjvm-default=enable")
     }
 }
 
@@ -49,25 +49,25 @@ repositories {
 
 // See https://github.com/JetBrains/gradle-intellij-plugin/
 intellij {
-    version = "IU-2018.1.4"
+    version = "IU-2020.2"
 
     setPlugins(
             // https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
-            "Kotlin",
-            "Pythonid:2018.1.181.5087.50", // https://plugins.jetbrains.com/plugin/631-python
-            "org.jetbrains.plugins.ruby:2018.1.20180515", // https://plugins.jetbrains.com/plugin/1293-ruby
-            "yaml",
-            "org.jetbrains.plugins.go:181.5087.39.204", // https://plugins.jetbrains.com/plugin/9568-go
-            "com.jetbrains.php:181.5087.11", // https://plugins.jetbrains.com/plugin/6610-php
-            "JavaScriptLanguage",
-            "markdown",
-            "Groovy",
-            "org.intellij.scala:2018.1.4", // https://plugins.jetbrains.com/plugin/1347-scala
-            "org.rust.lang:0.2.0.2107-181", // https://plugins.jetbrains.com/plugin/8182-rust
-            "CSS",
-            "java-i18n",
-            "properties",
-            "coverage"
+//            "Kotlin",
+//            "Pythonid:2018.1.181.5087.50", // https://plugins.jetbrains.com/plugin/631-python
+//            "org.jetbrains.plugins.ruby:2018.1.20180515", // https://plugins.jetbrains.com/plugin/1293-ruby
+//            "yaml",
+//            "org.jetbrains.plugins.go:181.5087.39.204", // https://plugins.jetbrains.com/plugin/9568-go
+//            "com.jetbrains.php:181.5087.11", // https://plugins.jetbrains.com/plugin/6610-php
+//            "JavaScriptLanguage",
+            "markdown"
+//            "Groovy",
+//            "org.intellij.scala:2018.1.4", // https://plugins.jetbrains.com/plugin/1347-scala
+//            "org.rust.lang:0.2.0.2107-181", // https://plugins.jetbrains.com/plugin/8182-rust
+//            "CSS",
+//            "java-i18n",
+//            "properties",
+//            "coverage"
     )
     updateSinceUntilBuild = false
 }
